@@ -1,24 +1,17 @@
-import CartTotals from './components/cart/CartTotals';
-import Categories from './components/categories/Categories';
-import Header from './components/header/Header';
-import Products from './components/products/Products';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CartPage from "./pages/CartPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
 
 function App() {
   return (
-    <div>
-      <Header/>
-      <div className='home flex md:flex-row flex-col justify-between px-6 gap-10 md:pb-0 pb-24'>
-        <div className="categories overflow-auto max-h-[calc(100vh_-_112px)] md:pb-10">
-          <Categories/>
-        </div>
-        <div className="products flex-[8] max-h-[calc(100vh_-_112px)] overflow-y-auto pb-10">
-          <Products/>
-        </div>
-        <div className='cart-wrapper min-w-[300px] md:-mr-[24px] md:-mt-[24px] border'>
-          <CartTotals/>
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage/>}/> 
+        <Route path="/cart" element={<CartPage/>}/>  
+      </Routes>
+    </BrowserRouter>
+
+    
   );
 }
 
